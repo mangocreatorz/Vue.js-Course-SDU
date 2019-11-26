@@ -16,14 +16,19 @@ INSERT INTO users (name, email)
 
 */
 
+// "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld"
+
 const express = require('express');
 var app = express();
+const bodyparser = require('body-parser');
+
+app.use(bodyparser.json());
 
 const mysql = require('mysql');
 const config = {
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: '',
     database: 'api',
 };
 
