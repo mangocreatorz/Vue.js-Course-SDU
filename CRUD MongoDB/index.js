@@ -12,21 +12,20 @@ const PersonModel = Mongoose.model("users", {
 });
 
 app.use(BodyParser.json());
-//app.use(BodyParser.urlencoded({ extended: true }));
 
-app.post("/create", async (request, response) => {
+app.post("/create", /*async*/ (request, response) => {
     try {
         var person = new PersonModel(request.body);
-        var result = await person.save();
+        var result = /*await*/ person.save();
         response.send(result);
     } catch (error) {
         response.status(500).send(error);
     }
 });
 
-app.get("/users", async (request, response) => {
+app.get("/users", /*async*/ (request, response) => {
     try {
-        var result = await PersonModel.find().exec();
+        var result = /*await*/ PersonModel.find().exec();
         response.send(result);
     } catch (error) {
         response.status(500).send(error);
